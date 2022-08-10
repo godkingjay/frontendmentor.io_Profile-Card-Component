@@ -1,0 +1,244 @@
+@import url("https://fonts.googleapis.com/css?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+    --white: hsl(0, 0%, 100%);
+    --dark-cyan: hsl(185, 75%, 39%);
+    --very-dark-desaturated blue: hsl(229, 23%, 23%);
+    --dark-grayish-blue: hsl(227, 10%, 46%);
+    --dark-gray: hsl(0, 0%, 59%);
+    --font-size-text: 14px;
+    --font-size-stats: 18px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+/*    outline: solid black 1px;*/
+}
+
+body {
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+    max-width: 100vw;
+    padding: 1.5rem;
+    font-family: "Kumbh Sans", sans-serif;
+    background: var(--dark-cyan);
+}
+
+h1 {
+    font-size: var(--font-size-stats);
+}
+
+p {
+    font-size: var(--font-size-text);
+    color: var(--dark-gray);
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.background > div {
+    position: relative;
+    overflow: hidden;
+    height: 50%;
+    width: 100%;
+    opacity: 0.5;
+    flex-direction: 1 1 auto;
+}
+
+.background > div:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.background > div:nth-child(2) {
+    bottom: 0;
+    right: 0;
+}
+
+.background > div > img {
+    position: absolute;
+    height: 200%;
+    width: 50%;
+}
+
+.background > div:nth-child(1) > img {
+    top: -100%;
+    left: 0;
+}
+
+.background > div:nth-child(2) > img {
+    width: 100%;
+    bottom: -100%;
+    right: -50%;
+}
+
+main {
+    width: 100%;
+    position: relative;
+}
+
+.wrapper {
+    position: absolute;
+    display: block;
+    height: max-content;
+    width: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.card {
+    aspect-ratio: 1;
+    min-width: 22rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0 1rem #0003, 0 0 3rem #0001;
+}
+
+.card-top,
+.card-bottom {
+    min-width: 17rem;
+    width: 100%;
+}
+
+.card-top {
+    height: 40%;
+    background: url("./images/bg-pattern-card.svg");
+}
+
+.card-bottom {
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+}
+
+.line {
+    margin-top: auto;
+    height: 1px;
+    width: 100%;
+    background: var(--dark-gray);
+}
+
+.profile-image-container,
+.profile-details {
+    top: -12.5%;
+}
+
+.profile-image-container {
+    align-self: center;
+    position: relative;
+    display: flex;
+    height: 100%;
+    aspect-ratio: 1;
+}
+
+.profile-image-container > img {
+    aspect-ratio: 1;
+    width: 125%;
+    transform: translate(-12.5%, -30%);
+    border-radius: 50%;
+    position: absolute;
+    border: solid 0.5rem var(--white);
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.profile-details > h1 {
+    display: flex;
+    gap: 0.5rem;
+}
+
+h1 > span {
+    color: var(--dark-gray);
+}
+
+.profile-stats {
+    margin-top: auto;
+    display: flex;
+    width: 100%;
+    margin-block: 1rem;
+    position: relative;
+}
+
+.profile-stats-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    width: 100%;
+    gap: 0.25rem;
+}
+
+.attribution {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 0.2rem;
+    width: calc(100vw - 2rem);
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 768px) {
+    .background > div:nth-child(2) > img {
+        width: 50%;
+        bottom: -100%;
+        right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        min-width: 16rem;
+        max-width: 30rem;
+        width: 100%;
+    }
+
+    .profile-image-container,
+    .profile-details {
+        top: -5%;
+    }
+
+    .profile-image-container > img {
+        width: 175%;
+        transform: translate(-25%, -45%);
+    }
+
+    .profile-details {
+        gap: 0.2rem;
+    }
+
+    .profile-stats {
+        margin-block: 0.5rem;
+    }
+}
